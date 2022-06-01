@@ -1,0 +1,8 @@
+#impossibleButton {
+    height: 50px;
+    width: 100px;
+    background-color: coral;
+    color: white;
+    line-height: 50px;
+    text-align: center;
+}
