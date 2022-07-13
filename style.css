@@ -7,3 +7,27 @@
     text-align: center;
     cursor: pointer;
 }
+
+.chart-row {
+    margin-bottom: 15px;
+}
+
+.chart-label {
+    display: inline-block;
+    width: 150px;
+}
+
+.chart-bar-wrapper {
+    display: inline-block;
+    width: 500px;
+}
+
+.chart-bar {
+    display: inline-block;
+    width: 100%;
+    background-color: coral;
+    color: white;
+    padding: 15px;
+    border-radius: 20px;
+    text-align: right;
+}
