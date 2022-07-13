@@ -23,10 +23,10 @@ function setCatHTMLAttributes(name, hunger, tiredness, loneliness) {
     const catTirednessElement = document.getElementById("catTiredness");
     const catLonelinessElement = document.getElementById("catLoneliness");
 
-    //catNameElement.innerHTML = "Name: " + name;
-    //catHungerElement.innerHTML = "Hunger: " + hunger + "%";
-    //catTirednessElement.innerHTML = "Tiredness: " + tiredness + "%";
-    //catLonelinessElement.innerHTML = "Loneliness: " + loneliness + "%";
+    catNameElement.innerHTML = name;
+    catHungerElement.innerHTML = hunger + "%";
+    catTirednessElement.innerHTML = tiredness + "%";
+    catLonelinessElement.innerHTML = loneliness + "%";
 }
 
 function checkNumInRange(num, min, max) {
