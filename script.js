@@ -62,9 +62,21 @@ function setCatHTMLAttributes(name, hunger, tiredness, loneliness) {
 
     // Then we can write the given attributes inside them.
     catNameElement.innerHTML = name;
+
     catHungerElement.innerHTML = hunger + "%";
+    catHungerElement.style.width = hunger + "%";
+
     catTirednessElement.innerHTML = tiredness + "%";
+    catTirednessElement.style.width = tiredness + "%";
+
     catLonelinessElement.innerHTML = loneliness + "%";
+    catLonelinessElement.style.width = loneliness + "%";
+
+    if (hunger < 50 && tiredness < 50 && loneliness < 50) {
+        document.querySelector("#exercise4 > img").src = "images/pleased-cat.gif";
+    } else {
+        document.querySelector("#exercise4 > img").src = "images/angry-cat.gif";
+    }
 }
 
 /**

@@ -30,4 +30,5 @@
     padding: 15px;
     border-radius: 20px;
     text-align: right;
+    transition: width 400ms;
 }
