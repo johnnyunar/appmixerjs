@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Appmixer JS Exercise</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<h1>The Cat</h1>
+<div id="exercise4">
+    <img src="images/angry-cat.gif" width="100"/>
+    <div class="chart-row">
+        <span class="chart-label">Name: </span>
+        <span id="catName">Minda</span>
+    </div>
+    <div class="chart-row">
+        <span class="chart-label">Hunger: </span>
+        <span class="chart-bar-wrapper">
+            <span class="chart-bar" id="catHunger">100%</span>
+        </span>
+    </div>
+    <div class="chart-row">
+        <span class="chart-label">Tiredness: </span>
+        <span class="chart-bar-wrapper">
+            <span class="chart-bar" id="catTiredness">100%</span>
+        </span>
+    </div>
+    <div class="chart-row">
+        <span class="chart-label">Loneliness: </span>
+        <span class="chart-bar-wrapper">
+            <span class="chart-bar" id="catLoneliness">100%</span>
+        </span>
+    </div>
+    <button id="meow">MEOW!</button>
+    <button id="feedButton">Feed</button>
+    <button id="petButton">Pet</button>
+    <button id="sleepButton">Sleep</button>
+</div>
+
+<script src="tamagotchi.js"></script>
+</body>
+
+</html>
