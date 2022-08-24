@@ -1,3 +1,22 @@
+body {
+    background: #131313;
+    font-family: 'Silkscreen', cursive;
+}
+
+h1 {
+    font-size: 100px;
+    color: white;
+    text-align: center;
+
+    background: linear-gradient(-45deg, #6355a4, #6355a4, #e89a3e, #e89a3e);
+    -webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: animated_text 10s ease-in-out infinite;
+	-moz-animation: animated_text 10s ease-in-out infinite;
+	-webkit-animation: animated_text 10s ease-in-out infinite;
+	background-size: 300%;
+}
+
 #impossibleButton {
     height: 50px;
     width: 100px;
@@ -6,6 +25,13 @@
     line-height: 50px;
     text-align: center;
     cursor: pointer;
+}
+
+#cats-container {
+    display: flex;
+    gap: 30px;
+    padding: 50px;
+    flex-wrap: wrap;
 }
 
 .chart-row {
@@ -19,7 +45,7 @@
 
 .chart-bar-wrapper {
     display: inline-block;
-    width: 500px;
+    width: 150px;
 }
 
 .chart-bar {
@@ -31,4 +57,26 @@
     border-radius: 20px;
     text-align: right;
     transition: width 400ms;
+}
+
+.cat-card {
+    height: 550px;
+    width: 400px;
+    border-radius: 30px;
+    background: #e3e3e3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cat-name {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+@keyframes animated_text {
+	0% { background-position: 0 50%; }
+	50% { background-position: 100% 50%; }
+	100% { background-position: 0 50%; }
 }

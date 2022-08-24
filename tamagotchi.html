@@ -4,39 +4,79 @@
 <head>
     <meta charset="utf-8">
     <title>Appmixer JS Exercise</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 <h1>The Cat</h1>
-<div id="exercise4">
-    <img src="images/angry-cat.gif" width="100"/>
-    <div class="chart-row">
-        <span class="chart-label">Name: </span>
-        <span id="catName">Minda</span>
-    </div>
-    <div class="chart-row">
-        <span class="chart-label">Hunger: </span>
-        <span class="chart-bar-wrapper">
+<div id="cats-container">
+    <div class="cat-card">
+        <img src="images/angry-cat.gif" width="250"/>
+        <div class="chart-row">
+            <span class="cat-name">Minda</span>
+        </div>
+        <div class="chart-row">
+            <span class="chart-label">Hunger: </span>
+            <span class="chart-bar-wrapper">
             <span class="chart-bar" id="catHunger">100%</span>
         </span>
-    </div>
-    <div class="chart-row">
-        <span class="chart-label">Tiredness: </span>
-        <span class="chart-bar-wrapper">
+        </div>
+        <div class="chart-row">
+            <span class="chart-label">Tiredness: </span>
+            <span class="chart-bar-wrapper">
             <span class="chart-bar" id="catTiredness">100%</span>
         </span>
-    </div>
-    <div class="chart-row">
-        <span class="chart-label">Loneliness: </span>
-        <span class="chart-bar-wrapper">
+        </div>
+        <div class="chart-row">
+            <span class="chart-label">Loneliness: </span>
+            <span class="chart-bar-wrapper">
             <span class="chart-bar" id="catLoneliness">100%</span>
         </span>
+        </div>
+        <div>
+            <button id="meow">MEOW!</button>
+            <button id="feedButton">Feed</button>
+            <button id="petButton">Pet</button>
+            <button id="sleepButton">Sleep</button>
+        </div>
     </div>
-    <button id="meow">MEOW!</button>
-    <button id="feedButton">Feed</button>
-    <button id="petButton">Pet</button>
-    <button id="sleepButton">Sleep</button>
+    <div class="cat-card">
+        <img src="images/angry-cat.gif" width="250"/>
+        <div class="chart-row">
+            <span class="cat-name">Minda</span>
+        </div>
+        <div class="chart-row">
+            <span class="chart-label">Hunger: </span>
+            <span class="chart-bar-wrapper">
+            <span class="chart-bar" id="catHunger">100%</span>
+        </span>
+        </div>
+        <div class="chart-row">
+            <span class="chart-label">Tiredness: </span>
+            <span class="chart-bar-wrapper">
+            <span class="chart-bar" id="catTiredness">100%</span>
+        </span>
+        </div>
+        <div class="chart-row">
+            <span class="chart-label">Loneliness: </span>
+            <span class="chart-bar-wrapper">
+            <span class="chart-bar" id="catLoneliness">100%</span>
+        </span>
+        </div>
+        <div>
+            <button id="meow">MEOW!</button>
+            <button id="feedButton">Feed</button>
+            <button id="petButton">Pet</button>
+            <button id="sleepButton">Sleep</button>
+        </div>
+    </div>
 </div>
 
 <script src="tamagotchi.js"></script>
