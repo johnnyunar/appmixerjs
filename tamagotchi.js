@@ -13,7 +13,7 @@ function setCatHTMLAttributes(name, hunger, tiredness, loneliness) {
     const catLonelinessElement = document.getElementById("catLoneliness");
 
     // Then we can write the given attributes inside them.
-    catNameElement.innerHTML = name;
+    // catNameElement.innerHTML = name;
 
     catHungerElement.innerHTML = hunger + "%";
     catHungerElement.style.width = hunger + "%";
@@ -25,9 +25,9 @@ function setCatHTMLAttributes(name, hunger, tiredness, loneliness) {
     catLonelinessElement.style.width = loneliness + "%";
 
     if (hunger < 50 && tiredness < 50 && loneliness < 50) {
-        document.querySelector("#exercise4 > img").src = "images/pleased-cat.gif";
+        document.querySelector(".cat-card > img").src = "images/pleased-cat.gif";
     } else {
-        document.querySelector("#exercise4 > img").src = "images/angry-cat.gif";
+        document.querySelector(".cat-card > img").src = "images/angry-cat.gif";
     }
 }
 
@@ -152,6 +152,8 @@ class Cat {
 
 let myCat = new Cat("Minda"); // Create a new instance of a Cat
 
+let allCats = [myCat];
+
 setCatHTMLAttributes(myCat.name, myCat.hunger, myCat.tiredness, myCat.loneliness); // Write the cat's needs to the HTML
 
 // When a user clicks on the "MEOW" button, fire the meow() method.
@@ -179,4 +181,46 @@ const sleepButton = document.getElementById("sleepButton");
 sleepButton.addEventListener("click", function () {
     myCat.sleep();
     setCatHTMLAttributes(myCat.name, myCat.hunger, myCat.tiredness, myCat.loneliness); // Refresh the cat's needs
+});
+
+
+const newCardButton = document.getElementById("newCard");
+newCardButton.addEventListener("click", function () {
+    allCats.push(new Cat("Minda1"));
+
+    let newElementText = '        <img src="images/angry-cat.gif" width="250"/>\n' +
+        '        <div class="chart-row">\n' +
+        '            <span class="cat-name">Minda</span>\n' +
+        '        </div>\n' +
+        '        <div class="chart-row">\n' +
+        '            <span class="chart-label">Hunger: </span>\n' +
+        '            <span class="chart-bar-wrapper">\n' +
+        '            <span class="chart-bar" id="catHunger">100%</span>\n' +
+        '        </span>\n' +
+        '        </div>\n' +
+        '        <div class="chart-row">\n' +
+        '            <span class="chart-label">Tiredness: </span>\n' +
+        '            <span class="chart-bar-wrapper">\n' +
+        '            <span class="chart-bar" id="catTiredness">100%</span>\n' +
+        '        </span>\n' +
+        '        </div>\n' +
+        '        <div class="chart-row">\n' +
+        '            <span class="chart-label">Loneliness: </span>\n' +
+        '            <span class="chart-bar-wrapper">\n' +
+        '            <span class="chart-bar" id="catLoneliness">100%</span>\n' +
+        '        </span>\n' +
+        '        </div>\n' +
+        '        <div>\n' +
+        '            <button id="meow">MEOW!</button>\n' +
+        '            <button id="feedButton">Feed</button>\n' +
+        '            <button id="petButton">Pet</button>\n' +
+        '            <button id="sleepButton">Sleep</button>\n' +
+        '        </div>\n'
+
+    let newElement = document.createElement("div");
+    newElement.className = "cat-card";
+    newElement.setAttribute("data-id", allCats.length - 1);
+    newElement.innerHTML = newElementText;
+    let catsContainer = document.getElementById("cats-container");
+    catsContainer.insertBefore(newElement, catsContainer.lastElementChild);
 });

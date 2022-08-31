@@ -17,7 +17,7 @@
 <body>
 <h1>The Cat</h1>
 <div id="cats-container">
-    <div class="cat-card">
+    <div class="cat-card" data-id="0">
         <img src="images/angry-cat.gif" width="250"/>
         <div class="chart-row">
             <span class="cat-name">Minda</span>
@@ -41,41 +41,14 @@
         </span>
         </div>
         <div>
-            <button id="meow">MEOW!</button>
-            <button id="feedButton">Feed</button>
-            <button id="petButton">Pet</button>
-            <button id="sleepButton">Sleep</button>
+            <button class="meowButton">MEOW!</button>
+            <button class="feedButton">Feed</button>
+            <button class="petButton">Pet</button>
+            <button class="sleepButton">Sleep</button>
         </div>
     </div>
-    <div class="cat-card">
-        <img src="images/angry-cat.gif" width="250"/>
-        <div class="chart-row">
-            <span class="cat-name">Minda</span>
-        </div>
-        <div class="chart-row">
-            <span class="chart-label">Hunger: </span>
-            <span class="chart-bar-wrapper">
-            <span class="chart-bar" id="catHunger">100%</span>
-        </span>
-        </div>
-        <div class="chart-row">
-            <span class="chart-label">Tiredness: </span>
-            <span class="chart-bar-wrapper">
-            <span class="chart-bar" id="catTiredness">100%</span>
-        </span>
-        </div>
-        <div class="chart-row">
-            <span class="chart-label">Loneliness: </span>
-            <span class="chart-bar-wrapper">
-            <span class="chart-bar" id="catLoneliness">100%</span>
-        </span>
-        </div>
-        <div>
-            <button id="meow">MEOW!</button>
-            <button id="feedButton">Feed</button>
-            <button id="petButton">Pet</button>
-            <button id="sleepButton">Sleep</button>
-        </div>
+    <div class="cat-card" id="newCard">
+        <span class="plus-icon">+</span>
     </div>
 </div>
 
