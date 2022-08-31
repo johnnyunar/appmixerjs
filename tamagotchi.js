@@ -221,6 +221,7 @@ newCardButton.addEventListener("click", function () {
     newElement.className = "cat-card";
     newElement.setAttribute("data-id", allCats.length - 1);
     newElement.innerHTML = newElementText;
+
     let catsContainer = document.getElementById("cats-container");
     catsContainer.insertBefore(newElement, catsContainer.lastElementChild);
 });
