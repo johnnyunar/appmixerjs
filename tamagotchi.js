@@ -156,6 +156,7 @@ let allCats = [myCat];
 
 setCatHTMLAttributes(myCat.name, myCat.hunger, myCat.tiredness, myCat.loneliness); // Write the cat's needs to the HTML
 
+/*
 // When a user clicks on the "MEOW" button, fire the meow() method.
 const meowButton = document.getElementById("meow");
 meowButton.addEventListener("click", function () {
@@ -182,11 +183,16 @@ sleepButton.addEventListener("click", function () {
     myCat.sleep();
     setCatHTMLAttributes(myCat.name, myCat.hunger, myCat.tiredness, myCat.loneliness); // Refresh the cat's needs
 });
+ */
 
+document.body.addEventListener("click", function (event){
+    console.log(event.target);
+});
 
 const newCardButton = document.getElementById("newCard");
 newCardButton.addEventListener("click", function () {
-    allCats.push(new Cat("Minda1"));
+    const newCat = new Cat("Minda1");
+    allCats.push(newCat);
 
     const firstCard = document.querySelector(".cat-card");
     const firstCardClone = firstCard.cloneNode(true);
