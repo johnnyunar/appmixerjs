@@ -156,37 +156,20 @@ let allCats = [myCat];
 
 setCatHTMLAttributes(myCat.name, myCat.hunger, myCat.tiredness, myCat.loneliness); // Write the cat's needs to the HTML
 
-/*
-// When a user clicks on the "MEOW" button, fire the meow() method.
-const meowButton = document.getElementById("meow");
-meowButton.addEventListener("click", function () {
-    myCat.meow();
-});
+document.body.addEventListener("click", function (event) {
+    const catId = Number(event.target.parentElement.parentElement.dataset.id);
 
-// When a user clicks on the "FEED" button, fire the feed() method.
-const feedButton = document.getElementById("feedButton");
-feedButton.addEventListener("click", function () {
-    myCat.feed();
-    setCatHTMLAttributes(myCat.name, myCat.hunger, myCat.tiredness, myCat.loneliness); // Refresh the cat's needs
-});
+    const affectedCat = allCats[catId];
 
-// When a user clicks on the "PET" button, fire the pet() method.
-const petButton = document.getElementById("petButton");
-petButton.addEventListener("click", function () {
-    myCat.pet();
-    setCatHTMLAttributes(myCat.name, myCat.hunger, myCat.tiredness, myCat.loneliness); // Refresh the cat's needs
-});
-
-// When a user clicks on the "SLEEP" button, fire the sleep() method.
-const sleepButton = document.getElementById("sleepButton");
-sleepButton.addEventListener("click", function () {
-    myCat.sleep();
-    setCatHTMLAttributes(myCat.name, myCat.hunger, myCat.tiredness, myCat.loneliness); // Refresh the cat's needs
-});
- */
-
-document.body.addEventListener("click", function (event){
-    console.log(event.target);
+    if (event.target.classList[0] === "meow") {
+        affectedCat.meow();
+    } else if (event.target.classList[0] === "feedButton") {
+        affectedCat.feed();
+    } else if (event.target.classList[0] === "petButton") {
+        affectedCat.pet();
+    } else if (event.target.classList[0] === "sleepButton") {
+        affectedCat.sleep();
+    }
 });
 
 const newCardButton = document.getElementById("newCard");
