@@ -188,40 +188,11 @@ const newCardButton = document.getElementById("newCard");
 newCardButton.addEventListener("click", function () {
     allCats.push(new Cat("Minda1"));
 
-    let newElementText = '        <img src="images/angry-cat.gif" width="250"/>\n' +
-        '        <div class="chart-row">\n' +
-        '            <span class="cat-name">Minda</span>\n' +
-        '        </div>\n' +
-        '        <div class="chart-row">\n' +
-        '            <span class="chart-label">Hunger: </span>\n' +
-        '            <span class="chart-bar-wrapper">\n' +
-        '            <span class="chart-bar" id="catHunger">100%</span>\n' +
-        '        </span>\n' +
-        '        </div>\n' +
-        '        <div class="chart-row">\n' +
-        '            <span class="chart-label">Tiredness: </span>\n' +
-        '            <span class="chart-bar-wrapper">\n' +
-        '            <span class="chart-bar" id="catTiredness">100%</span>\n' +
-        '        </span>\n' +
-        '        </div>\n' +
-        '        <div class="chart-row">\n' +
-        '            <span class="chart-label">Loneliness: </span>\n' +
-        '            <span class="chart-bar-wrapper">\n' +
-        '            <span class="chart-bar" id="catLoneliness">100%</span>\n' +
-        '        </span>\n' +
-        '        </div>\n' +
-        '        <div>\n' +
-        '            <button id="meow">MEOW!</button>\n' +
-        '            <button id="feedButton">Feed</button>\n' +
-        '            <button id="petButton">Pet</button>\n' +
-        '            <button id="sleepButton">Sleep</button>\n' +
-        '        </div>\n'
+    const firstCard = document.querySelector(".cat-card");
+    const firstCardClone = firstCard.cloneNode(true);
 
-    let newElement = document.createElement("div");
-    newElement.className = "cat-card";
-    newElement.setAttribute("data-id", allCats.length - 1);
-    newElement.innerHTML = newElementText;
+    firstCardClone.setAttribute("data-id", allCats.length - 1);
 
     let catsContainer = document.getElementById("cats-container");
-    catsContainer.insertBefore(newElement, catsContainer.lastElementChild);
+    catsContainer.insertBefore(firstCardClone, catsContainer.lastElementChild);
 });
