@@ -10,11 +10,11 @@ h1 {
 
     background: linear-gradient(-45deg, #6355a4, #6355a4, #e89a3e, #e89a3e);
     -webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	animation: animated_text 10s ease-in-out infinite;
-	-moz-animation: animated_text 10s ease-in-out infinite;
-	-webkit-animation: animated_text 10s ease-in-out infinite;
-	background-size: 300%;
+    -webkit-text-fill-color: transparent;
+    animation: animated_text 10s ease-in-out infinite;
+    -moz-animation: animated_text 10s ease-in-out infinite;
+    -webkit-animation: animated_text 10s ease-in-out infinite;
+    background-size: 300%;
 }
 
 #impossibleButton {
@@ -32,6 +32,10 @@ h1 {
     gap: 30px;
     padding: 50px;
     flex-wrap: wrap;
+}
+
+.chart-wrapper {
+    width: 80%;
 }
 
 .chart-row {
@@ -95,7 +99,32 @@ h1 {
 }
 
 @keyframes animated_text {
-	0% { background-position: 0 50%; }
-	50% { background-position: 100% 50%; }
-	100% { background-position: 0 50%; }
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+@media screen and (max-width: 499px) {
+
+    h1 {
+        font-size: 50px;
+    }
+
+    .chart-bar-wrapper {
+        width: 100%;
+    }
+
+    .chart-bar {
+        padding: 5px;
+    }
+
+    #newCard {
+        height: 150px;
+    }
 }

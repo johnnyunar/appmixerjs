@@ -1,33 +1,30 @@
 /**
  * Write given attributes to corresponding HTML elements
+ * @param id            {Number}    id of cat's card
  * @param name          {String}    cat's name
  * @param hunger        {Number}    cat's hunger factor
  * @param tiredness     {Number}    cat's tiredness factor
  * @param loneliness    {Number}    cat's loneliness factor
  */
-function setCatHTMLAttributes(name, hunger, tiredness, loneliness) {
+function setCatHTMLAttributes(id, name, hunger, tiredness, loneliness) {
     // We need to find the output elements in our HTML code
-    const catNameElement = document.getElementById("catName");
-    const catHungerElement = document.getElementById("catHunger");
-    const catTirednessElement = document.getElementById("catTiredness");
-    const catLonelinessElement = document.getElementById("catLoneliness");
+    const catNameElement = document.querySelector(`[data-id='${id}'] .cat-name`);
+    const catHungerElement = document.querySelector(`[data-id='${id}'] .cat-hunger`);
+    const catTirednessElement = document.querySelector(`[data-id='${id}'] .cat-tiredness`);
+    const catLonelinessElement = document.querySelector(`[data-id='${id}'] .cat-loneliness`);
 
     // Then we can write the given attributes inside them.
     // catNameElement.innerHTML = name;
 
-    catHungerElement.innerHTML = hunger + "%";
-    catHungerElement.style.width = hunger + "%";
-
-    catTirednessElement.innerHTML = tiredness + "%";
-    catTirednessElement.style.width = tiredness + "%";
-
-    catLonelinessElement.innerHTML = loneliness + "%";
-    catLonelinessElement.style.width = loneliness + "%";
+    catNameElement.innerHTML = name;
+    catHungerElement.innerHTML = catHungerElement.style.width = hunger + "%";
+    catTirednessElement.innerHTML = catTirednessElement.style.width = tiredness + "%";
+    catLonelinessElement.innerHTML = catLonelinessElement.style.width = loneliness + "%";
 
     if (hunger < 50 && tiredness < 50 && loneliness < 50) {
-        document.querySelector(".cat-card > img").src = "images/pleased-cat.gif";
+        document.querySelector(`[data-id='${id}'] > img`).src = "images/pleased-cat.gif";
     } else {
-        document.querySelector(".cat-card > img").src = "images/angry-cat.gif";
+        document.querySelector(`[data-id='${id}'] > img`).src = "images/angry-cat.gif";
     }
 }
 
@@ -83,9 +80,11 @@ class Cat {
 
     /**
      * When creating a new instance of Cat, we set all their needs to 100%, so the cats are very unsatisfied by default.
+     * @param id
      * @param name the cat's name
      */
-    constructor(name) {
+    constructor(id, name) {
+        this.id = id;
         this.name = name;
         this.hunger = 100;
         this.tiredness = 100;
@@ -113,6 +112,7 @@ class Cat {
         this.loneliness = newProperties[2];
          */
         [this.hunger, this.tiredness, this.loneliness] = checkNumsInRange([this.hunger, this.tiredness, this.loneliness], 0, 100);
+        setCatHTMLAttributes(this.id, this.name, this.hunger, this.tiredness, this.loneliness); // Write the cat's needs to the HTML
     }
 
     /**
@@ -150,16 +150,17 @@ class Cat {
     }
 }
 
-let myCat = new Cat("Minda"); // Create a new instance of a Cat
+let myCat = new Cat(0, "Minda"); // Create a new instance of a Cat
 
 let allCats = [myCat];
 
-setCatHTMLAttributes(myCat.name, myCat.hunger, myCat.tiredness, myCat.loneliness); // Write the cat's needs to the HTML
+setCatHTMLAttributes(0, myCat.name, myCat.hunger, myCat.tiredness, myCat.loneliness); // Write the cat's needs to the HTML
 
 document.body.addEventListener("click", function (event) {
     const catId = Number(event.target.parentElement.parentElement.dataset.id);
 
     const affectedCat = allCats[catId];
+    console.log(affectedCat);
 
     if (event.target.classList[0] === "meow") {
         affectedCat.meow();
@@ -174,7 +175,9 @@ document.body.addEventListener("click", function (event) {
 
 const newCardButton = document.getElementById("newCard");
 newCardButton.addEventListener("click", function () {
-    const newCat = new Cat("Minda1");
+    const newId = allCats.length;
+    const name = prompt("Name:");
+    const newCat = new Cat(newId, name);
     allCats.push(newCat);
 
     const firstCard = document.querySelector(".cat-card");
@@ -184,4 +187,6 @@ newCardButton.addEventListener("click", function () {
 
     let catsContainer = document.getElementById("cats-container");
     catsContainer.insertBefore(firstCardClone, catsContainer.lastElementChild);
+
+    setCatHTMLAttributes(newId, newCat.name, newCat.hunger, newCat.tiredness, newCat.loneliness); // Write the cat's needs to the HTML
 });
