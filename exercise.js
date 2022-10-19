@@ -71,6 +71,10 @@ function largerThan(num, arr){
     return count;
 }
 
+function sortArr(arr){
+
+}
+
 const arraySize = Number(prompt('Kolik cisel chces zadat?'));
 inputArr = getInput(arraySize);
 alert('Nejvetsi cislo je ' + max(inputArr));
