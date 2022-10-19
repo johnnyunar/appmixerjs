@@ -44,14 +44,17 @@ function isInArray(num, arr) {
 }
 
 function secondMax(arr) {
-    // FIXME
     let maxNum = arr[0];
     let secondMaxNum = arr[1];
+
+    if (maxNum < secondMaxNum) {
+        [maxNum, secondMaxNum] = [secondMaxNum, maxNum];
+    }
 
     for (let i = 0; i < arr.length; i++) {
         if (arr[i] > maxNum) {
             maxNum = arr[i];
-        } else if (secondMaxNum < arr[i] < maxNum){
+        } else if (secondMaxNum < arr[i] < maxNum) {
             secondMaxNum = arr[i];
         }
     }
@@ -59,11 +62,11 @@ function secondMax(arr) {
     return secondMaxNum;
 }
 
-function largerThan(num, arr){
+function largerThan(num, arr) {
     let count = 0;
 
     for (let i = 0; i < arr.length; i++) {
-        if (arr[i] > num){
+        if (arr[i] > num) {
             count++;
         }
     }
@@ -71,8 +74,20 @@ function largerThan(num, arr){
     return count;
 }
 
-function sortArr(arr){
+function swap(a, b) {
+    let tmp = a;
+    a = b;
+    b = tmp;
+}
 
+function sortArr(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr.length - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]
+            }
+        }
+    }
 }
 
 const arraySize = Number(prompt('Kolik cisel chces zadat?'));
@@ -81,3 +96,7 @@ alert('Nejvetsi cislo je ' + max(inputArr));
 alert('Druhe nejvetsi cislo je ' + secondMax(inputArr));
 alert('Nejmensi cislo je ' + min(inputArr));
 alert('Pocet cisel vetsich nez 10 je ' + largerThan(10, inputArr));
+sortArr(inputArr)
+alert('Tvoje cisla jsou serazena takto: ' + inputArr)
+
+console.log(inputArr)
